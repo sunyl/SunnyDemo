@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Library</string>
+
+    <string name="refresh_header_hint_normal">下拉刷新</string>
+    <string name="refresh_header_hint_release">释放立即刷新</string>
+    <string name="refresh_loading">正在加载...</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="loading_done">加载完成</string>
+    <string name="refresh_header_last_time">上次更新时间：</string>
+
+    <string name="no_data">没有数据</string>
+    <string name="refresh_network_error_context">请检查网络后重试</string>
+    <string name="refresh_retry">重试</string>
+    <string name="refresh_find_no_data">没有找到数据</string>
+    <string name="refresh_change_conditions">换个条件试试吧</string>
+    <string name="refresh_no_more_data">没有更多数据了</string>
+    <string name="refresh_load_fail">加载失败</string>
+</resources>
