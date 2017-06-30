@@ -1,12 +1,10 @@
 package com.widget.sun.demo.ui.base;
 
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntRange;
 import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 
+import com.umeng.analytics.MobclickAgent;
 import com.widget.lib.utils.Logger;
 import com.widget.lib.utils.StatusBarUtil;
 import com.widget.lib.view.backlayout.BGASwipeBackHelper;
@@ -31,6 +29,7 @@ public class BaseActivity extends FragmentActivity implements BGASwipeBackHelper
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         initSwipeBackFinish();
+        StatusBarUtil.StatusBarLightMode(this);
         super.onCreate(savedInstanceState);
         long t1 = System.currentTimeMillis();
         mRoot = getLayoutInflater().inflate(getLayoutResId(), null);
@@ -127,22 +126,15 @@ public class BaseActivity extends FragmentActivity implements BGASwipeBackHelper
         mSwipeBackHelper.backward();
     }
 
-    /**
-     * 设置状态栏颜色
-     *
-     * @param color
-     */
-    protected void setStatusBarColor(@ColorInt int color) {
-        setStatusBarColor(color, StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
     }
 
-    /**
-     * 设置状态栏颜色
-     *
-     * @param color
-     * @param statusBarAlpha 透明度
-     */
-    public void setStatusBarColor(@ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha) {
-        StatusBarUtil.setColorForSwipeBack(this, color, statusBarAlpha);
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
@@ -12,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'x86', 'x86_64'//, 'armeabi-v7a', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -20,6 +22,34 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outFile = output.outputFile
+                if (outFile != null && outFile.name.endsWith(".apk")){
+                    String time = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
+                    def fileName = "SunnyDemo_" + "v" + defaultConfig.versionName + "_" + time+"_"+"${variant.productFlavors[0].name}" + ".apk"
+                    output.outputFile = new File(outFile.parent+ File.separator + "_apk", fileName);
+                }
+            }
+        }
+    }
+
+    productFlavors {
+        googleplay {}
+        huawei {}
+        xiaomi {}
+        wandoujia {}
+        baidu {}
+        yingyongbao {}
+        android360 {}
+        uc {}
+        umeng {}
+        meizu{}
+        baidu{}
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
     }
 }
 
@@ -31,6 +61,12 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
     }
 }
 
@@ -46,5 +82,6 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.umeng.analytics:analytics:latest.integration'
     compile project(':library')
 }

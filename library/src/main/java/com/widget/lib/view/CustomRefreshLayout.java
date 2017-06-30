@@ -16,9 +16,9 @@ import java.util.List;
 
 public class CustomRefreshLayout extends RelativeLayout {
 
-    private static final String TAG_LOADING = "ProgressActivity.TAG_LOADING";
-    private static final String TAG_EMPTY = "ProgressActivity.TAG_EMPTY";
-    private static final String TAG_ERROR = "ProgressActivity.TAG_ERROR";
+    private static final String TAG_LOADING = "TAG_LOADING";
+    private static final String TAG_EMPTY = "TAG_EMPTY";
+    private static final String TAG_ERROR = "TAG_ERROR";
 
     private static final String CONTENT = "type_content";
     private static final String LOADING = "type_loading";

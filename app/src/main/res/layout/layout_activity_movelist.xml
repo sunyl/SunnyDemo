@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="豆瓣电影"
-            android:textColor="@color/white"
+            android:textColor="@color/main_text_color"
             android:textSize="@dimen/title_text_size" />
 
     </RelativeLayout>

@@ -4,7 +4,7 @@
     <!-- app背景 -->
     <color name="bg_main">#ededed</color>
     <!-- 主色 -->
-    <color name="app_color">#0d9aff</color>
+    <color name="app_color">@color/white</color>
     <!-- 辅色 -->
     <color name="app_second_color">#5a9de9</color>
     

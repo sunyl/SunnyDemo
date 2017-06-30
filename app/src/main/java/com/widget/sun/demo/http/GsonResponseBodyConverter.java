@@ -31,7 +31,5 @@ class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
                 throw new APIException(100);
             }
             return gson.fromJson(response, type);
-
-
     }
 }

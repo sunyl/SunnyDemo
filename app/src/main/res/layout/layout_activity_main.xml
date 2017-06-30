@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
-            android:textColor="@color/white"
+            android:textColor="@color/main_text_color"
             android:textSize="@dimen/title_text_size" />
 
     </RelativeLayout>
@@ -32,15 +32,50 @@
     <Button
         android:id="@+id/btn_btn1"
         style="@style/DemoBtn"
-        android:text="测试滑动返回" />
+        android:text="测试友盟埋点1号事件" />
 
     <Button
         android:id="@+id/btn_btn2"
         style="@style/DemoBtn"
-        android:text="测试滑动删除" />
+        android:text="测试友盟埋点2号事件" />
 
     <Button
         android:id="@+id/btn_btn3"
         style="@style/DemoBtn"
         android:text="测试 RecyclerView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:layout_marginTop="@dimen/g_margin"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/g_margin"
+            android:layout_weight="1"
+            android:text="ToggleButton"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/main_text_size" />
+
+        <ToggleButton
+            android:id="@+id/togBtnDisturb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/sl_ios_switch"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_channel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/g_small_margin"
+        android:text="渠道号:" />
 </LinearLayout>
